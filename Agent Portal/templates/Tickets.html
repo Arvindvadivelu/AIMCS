@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tickets | Agent Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Agent Portal/static/css/Tickets.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="logo-text">AgentHub</div>
+                </a>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="/Agent Portal/templates/Dashboard.html" class="menu-item active">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="/Agent Portal/templates/Tickets.html" class="menu-item">
+                    <i class="fas fa-ticket-alt"></i> My Tickets
+                </a>
+                <a href="/Agent Portal/templates/Queue.html" class="menu-item">
+                    <i class="fas fa-inbox"></i> Team Queue
+                </a>
+                <a href="/Agent Portal/templates/Knowledge.html" class="menu-item">
+                    <i class="fas fa-book"></i> Knowledge Base
+                </a>
+                <a href="/Agent Portal/templates/Analytics.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </a>
+                <a href="/Agent Portal/templates/Settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="User" class="user-avatar">
+                <div class="user-info">
+                    <h4>Sarah Johnson</h4>
+                    <p>Level 3 Support Agent</p>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">My Tickets</h1>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <div class="theme-toggle"> 
+                            <i class="fas fa-sun toggle-icon"></i>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider"></span>
+                            </label>
+                            <i class="fas fa-moon toggle-icon"></i>
+                        </div>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search my tickets...">
+                        </div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <a href="/Agent Portal/templates/index.html" class="logout-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Tickets Filter -->
+            <div class="tickets-filter">
+                <button class="filter-btn active">All Tickets</button>
+                <button class="filter-btn">Open</button>
+                <button class="filter-btn">Pending</button>
+                <button class="filter-btn">Resolved</button>
+                <button class="filter-btn">Closed</button>
+                <button class="filter-btn">High Priority</button>
+                <button class="filter-btn">Overdue</button>
+                <button class="filter-btn">SLA at Risk</button>
+            </div>
+            
+            <!-- Tickets Table -->
+            <table class="tickets-table">
+                <thead>
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>Subject</th>
+                        <th>Requester</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                        <th>Created</th>
+                        <th>Last Updated</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2847</a></td>
+                        <td><a href="#" class="ticket-subject">Can't access billing information</a></td>
+                        <td>Robert Johnson</td>
+                        <td><span class="ticket-status status-open">Open</span></td>
+                        <td><span class="ticket-priority priority-high">High</span></td>
+                        <td>Oct 15, 2023</td>
+                        <td>32m ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn" title="Assign"><i class="fas fa-user-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2846</a></td>
+                        <td><a href="#" class="ticket-subject">API integration failing with 403 error</a></td>
+                        <td>TechSolutions Inc</td>
+                        <td><span class="ticket-status status-pending">Pending</span></td>
+                        <td><span class="ticket-priority priority-high">High</span></td>
+                        <td>Oct 14, 2023</td>
+                        <td>1h ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn" title="Assign"><i class="fas fa-user-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2845</a></td>
+                        <td><a href="#" class="ticket-subject">Request for enterprise contract review</a></td>
+                        <td>Global Enterprises</td>
+                        <td><span class="ticket-status status-open">Open</span></td>
+                        <td><span class="ticket-priority priority-medium">Medium</span></td>
+                        <td>Oct 13, 2023</td>
+                        <td>2h ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn" title="Assign"><i class="fas fa-user-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2844</a></td>
+                        <td><a href="#" class="ticket-subject">Password reset not working</a></td>
+                        <td>Emily Wilson</td>
+                        <td><span class="ticket-status status-resolved">Resolved</span></td>
+                        <td><span class="ticket-priority priority-medium">Medium</span></td>
+                        <td>Oct 12, 2023</td>
+                        <td>1d ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn" title="Assign"><i class="fas fa-user-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2843</a></td>
+                        <td><a href="#" class="ticket-subject">Feature request: Dark mode</a></td>
+                        <td>David Miller</td>
+                        <td><span class="ticket-status status-open">Open</span></td>
+                        <td><span class="ticket-priority priority-low">Low</span></td>
+                        <td>Oct 11, 2023</td>
+                        <td>2d ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn" title="Assign"><i class="fas fa-user-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2842</a></td>
+                        <td><a href="#" class="ticket-subject">Invoice discrepancy for August</a></td>
+                        <td>Acme Corp</td>
+                        <td><span class="ticket-status status-closed">Closed</span></td>
+                        <td><span class="ticket-priority priority-medium">Medium</span></td>
+                        <td>Oct 10, 2023</td>
+                        <td>3d ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn" title="Assign"><i class="fas fa-user-plus"></i></button>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2842</a></td>
+                        <td><a href="#" class="ticket-subject">Invoice discrepancy for August</a></td>
+                        <td>Acme Corp</td>
+                        <td><span class="ticket-status status-closed">Closed</span></td>
+                        <td><span class="ticket-priority priority-medium">Medium</span></td>
+                        <td>Oct 10, 2023</td>
+                        <td>3d ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn" title="Assign"><i class="fas fa-user-plus"></i></button>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <div class="pagination-info">
+                    Showing 1-6 of 24 tickets
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">4</button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/Agent Portal/static/js/Tickets.js"></script>
+</body>
+</html>

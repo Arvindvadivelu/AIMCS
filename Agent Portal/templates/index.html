@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Portal - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Agent Portal/static/css/index.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-left">
+            <h1>Agent Portal</h1>
+            <p>Welcome back! Please login to access your support dashboard and manage customer tickets.</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/3209/3209260.png" alt="Support Agent">
+        </div>
+        
+        <div class="auth-right">
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Login</div>
+                <div class="auth-tab" data-tab="signup">Sign Up</div>
+            </div>
+            
+            <!-- Alert for showing messages -->
+            <div class="alert" id="alert-message"></div>
+            
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn">Login</button>
+                </div>
+                
+                <div class="auth-footer">
+                    <a href="#" id="forgot-password">Forgot password?</a>
+                </div>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signup-form" class="auth-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-team">Team</label>
+                    <select id="signup-team" class="form-control" required>
+                        <option value="">Select your team</option>
+                        <option value="Technical Team">Technical Team</option>
+                        <option value="Billing">Billing</option>
+                        <option value="Account">Account</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" class="form-control" placeholder="Create a password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" class="form-control" placeholder="Confirm your password" required>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn">Create Account</button>
+                </div>
+                
+                <div class="auth-footer">
+                    Already have an account? <a href="#" id="switch-to-login">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/Agent Portal/static/js/index.js"></script>
+</body>
+</html>

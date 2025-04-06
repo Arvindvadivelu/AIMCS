@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Agent Portal/static/css/Dashboard.css">
+</head>
+<body>
+    <!-- Login/Signup Success Notification -->
+    <div id="auth-notification" class="notification-alert" style="display: none;">
+        <i class="fas fa-check-circle"></i>
+        <span id="auth-message"></span>
+    </div>
+    
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="logo-text">AgentHub</div>
+                </a>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="/Agent Portal/templates/Dashboard.html" class="menu-item active">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="/Agent Portal/templates/Tickets.html" class="menu-item">
+                    <i class="fas fa-ticket-alt"></i> My Tickets
+                </a>
+                <a href="/Agent Portal/templates/Queue.html" class="menu-item">
+                    <i class="fas fa-inbox"></i> Team Queue
+                </a>
+                <a href="/Agent Portal/templates/Knowledge.html" class="menu-item">
+                    <i class="fas fa-book"></i> Knowledge Base
+                </a>
+                <a href="/Agent Portal/templates/Analytics.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </a>
+                <a href="/Agent Portal/templates/Settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="User" class="user-avatar">
+                <div class="user-info">
+                    <h4>Sarah Johnson</h4>
+                    <p>Level 3 Support Agent</p>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Dashboard</h1>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <div class="theme-toggle">
+                            <i class="fas fa-sun toggle-icon"></i>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider"></span>
+                            </label>
+                            <i class="fas fa-moon toggle-icon"></i>
+                        </div>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search tickets...">
+                        </div>
+                    </div>
+                    <div class="notification-wrapper">
+                        <button class="notification-btn" id="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge" id="notification-badge">3</span>
+                        </button>
+                        <div class="notification-dropdown" id="notification-dropdown">
+                            <div class="notification-header">
+                                <h3 class="notification-title">Notifications</h3>
+                                <span class="notification-clear" id="clear-notifications">Mark all as read</span>
+                            </div>
+                            <ul class="notification-list" id="notification-list">
+                                <li class="notification-item">
+                                    <div class="notification-icon">
+                                        <i class="fas fa-ticket-alt"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>New high priority ticket assigned to you</p>
+                                        <span class="notification-time">10 minutes ago</span>
+                                    </div>
+                                </li>
+                                <li class="notification-item">
+                                    <div class="notification-icon">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>New team member joined - Michael Chen</p>
+                                        <span class="notification-time">2 hours ago</span>
+                                    </div>
+                                </li>
+                                <li class="notification-item">
+                                    <div class="notification-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Your response time improved by 15% this week</p>
+                                        <span class="notification-time">1 day ago</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="notification-footer">
+                                <a href="#" class="notification-view-all">View All Notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/Agent Portal/templates/index.html" class="logout-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-title">
+                        <i class="fas fa-inbox"></i> Assigned Tickets
+                    </div>
+                    <div class="stat-value">24</div>
+                    <div class="stat-change up">
+                        <i class="fas fa-arrow-up"></i> 12% from yesterday
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-title">
+                        <i class="fas fa-clock"></i> Avg. Response Time
+                    </div>
+                    <div class="stat-value">32m</div>
+                    <div class="stat-change down">
+                        <i class="fas fa-arrow-down"></i> 8% from last week
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-title">
+                        <i class="fas fa-check-circle"></i> Resolution Rate
+                    </div>
+                    <div class="stat-value">89%</div>
+                    <div class="stat-change up">
+                        <i class="fas fa-arrow-up"></i> 3% from last week
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-title">
+                        <i class="fas fa-star"></i> Satisfaction
+                    </div>
+                    <div class="stat-value">4.7</div>
+                    <div class="stat-change">
+                        <i class="fas fa-equals"></i> No change
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Tickets -->
+            <div class="section-header">
+                <h2 class="section-title">Recent Tickets</h2>
+                <a href="/Agent Portal/templates/Tickets.html" class="view-all" id="view-all-tickets">
+                    View All <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            
+            <div class="tickets-container">
+                <div class="tickets-filter">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Assigned to Me</button>
+                    <button class="filter-btn">Unassigned</button>
+                    <button class="filter-btn">High Priority</button>
+                    <button class="filter-btn">Waiting on Customer</button>
+                    <button class="filter-btn">Overdue</button>
+                    <button class="filter-btn">SLA at Risk</button>
+                </div>
+                
+                <ul class="tickets-list">
+                    <li class="ticket-item">
+                        <div class="ticket-header">
+                            <a href="#" class="ticket-title">
+                                Can't access billing information
+                            </a>
+                            <span class="ticket-priority priority-high">High</span>
+                        </div>
+                        <div class="ticket-meta">
+                            <span><i class="far fa-user"></i> Robert Johnson</span>
+                            <span><i class="far fa-calendar-alt"></i> Oct 15, 2023</span>
+                            <span><i class="fas fa-tag"></i> Billing</span>
+                            <span><i class="fas fa-clock"></i> 32m ago</span>
+                        </div>
+                        <p class="ticket-excerpt">Customer reports "Access Denied" error when trying to view invoices. Already tried password reset.</p>
+                        <div class="ticket-actions">
+                            <button class="ticket-btn ticket-btn-primary respond-btn" data-ticket-id="CS-2848">
+                                <i class="fas fa-reply"></i> Respond
+                            </button>
+                            <button class="ticket-btn ticket-btn-secondary assign-btn" data-ticket-id="CS-2848">
+                                <i class="fas fa-arrow-right"></i> Assign
+                            </button>
+                        </div>
+                    </li>
+                    
+                    <li class="ticket-item">
+                        <div class="ticket-header">
+                            <a href="#" class="ticket-title">
+                                API integration failing with 403 error
+                            </a>
+                            <span class="ticket-priority priority-high">High</span>
+                        </div>
+                        <div class="ticket-meta">
+                            <span><i class="far fa-user"></i> TechSolutions Inc</span>
+                            <span><i class="far fa-calendar-alt"></i> Oct 14, 2023</span>
+                            <span><i class="fas fa-tag"></i> Technical</span>
+                            <span><i class="fas fa-clock"></i> 1h ago</span>
+                        </div>
+                        <p class="ticket-excerpt">Customer's integration started failing yesterday with 403 Forbidden errors on all endpoints.</p>
+                        <div class="ticket-actions">
+                            <button class="ticket-btn ticket-btn-primary respond-btn" data-ticket-id="CS-2847">
+                                <i class="fas fa-reply"></i> Respond
+                            </button>
+                            <button class="ticket-btn ticket-btn-secondary assign-btn" data-ticket-id="CS-2847">
+                                <i class="fas fa-arrow-right"></i> Assign
+                            </button>
+                        </div>
+                    </li>
+                    
+                    <li class="ticket-item">
+                        <div class="ticket-header">
+                            <a href="#" class="ticket-title">
+                                Request for enterprise contract review
+                            </a>
+                            <span class="ticket-priority priority-medium">Medium</span>
+                        </div>
+                        <div class="ticket-meta">
+                            <span><i class="far fa-user"></i> Global Enterprises</span>
+                            <span><i class="far fa-calendar-alt"></i> Oct 13, 2023</span>
+                            <span><i class="fas fa-tag"></i> Sales</span>
+                            <span><i class="fas fa-clock"></i> 2h ago</span>
+                        </div>
+                        <p class="ticket-excerpt">Customer wants to review contract terms before upgrading to enterprise plan.</p>
+                        <div class="ticket-actions">
+                            <button class="ticket-btn ticket-btn-primary respond-btn" data-ticket-id="CS-2846">
+                                <i class="fas fa-reply"></i> Respond
+                            </button>
+                            <button class="ticket-btn ticket-btn-secondary assign-btn" data-ticket-id="CS-2846">
+                                <i class="fas fa-arrow-right"></i> Assign
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Team Activity -->
+            <div class="section-header">
+                <h2 class="section-title">Team Activity</h2>
+                <a href="#" class="view-all">
+                    View All <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            
+            <div class="team-activity">
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex" class="activity-avatar">
+                        <div class="activity-content">
+                            <div class="activity-meta">
+                                <span class="activity-user">Alex Johnson</span>
+                                <span class="activity-time">15m ago</span>
+                            </div>
+                            <p class="activity-text">
+                                Resolved ticket <a href="#" class="activity-ticket">#CS-2847</a> about password reset issues
+                            </p>
+                        </div>
+                    </li>
+                    
+                    <li class="activity-item">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily" class="activity-avatar">
+                        <div class="activity-content">
+                            <div class="activity-meta">
+                                <span class="activity-user">Emily Rodriguez</span>
+                                <span class="activity-time">42m ago</span>
+                            </div>
+                            <p class="activity-text">
+                                Escalated ticket <a href="#" class="activity-ticket">#CS-2846</a> to billing team for invoice discrepancy
+                            </p>
+                        </div>
+                    </li>
+                    
+                    <li class="activity-item">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael" class="activity-avatar">
+                        <div class="activity-content">
+                            <div class="activity-meta">
+                                <span class="activity-user">Michael Chen</span>
+                                <span class="activity-time">1h ago</span>
+                            </div>
+                            <p class="activity-text">
+                                Created new knowledge base article: "API Authentication Guide"
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Response Modal -->
+    <div class="modal" id="response-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Respond to Ticket <span id="response-ticket-id"></span></h3>
+                <button class="modal-close" id="close-response-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="response-form">
+                    <div class="form-group">
+                        <label for="response-message">Your Response</label>
+                        <textarea id="response-message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="response-status">Update Status</label>
+                        <select id="response-status" class="form-control">
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                            <option value="waiting">Waiting on Customer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="response-attachments">Attachments</label>
+                        <input type="file" id="response-attachments" multiple>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancel-response">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Send Response</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assign Modal -->
+    <div class="modal" id="assign-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Assign Ticket <span id="assign-ticket-id"></span></h3>
+                <button class="modal-close" id="close-assign-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="assign-form">
+                    <div class="form-group">
+                        <label for="assign-agent">Assign To</label>
+                        <select id="assign-agent" class="form-control" required>
+                            <option value="">Select Agent</option>
+                            <option value="sarah">Sarah Johnson (Level 3)</option>
+                            <option value="alex">Alex Johnson (Level 2)</option>
+                            <option value="emily">Emily Rodriguez (Level 2)</option>
+                            <option value="michael">Michael Chen (Level 1)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="assign-priority">Priority</label>
+                        <select id="assign-priority" class="form-control" required>
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="assign-note">Internal Note (Optional)</label>
+                        <textarea id="assign-note" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancel-assign">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Assign Ticket</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Agent Portal/static/js/Dashboard.js"></script>
+</body>
+</html>

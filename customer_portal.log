@@ -1,0 +1,121 @@
+[2025-04-02 22:38:45,894] INFO in customer_app: Signup attempt for email: varvind2004@gmail.com
+[2025-04-02 22:38:45,996] INFO in customer_app: Database connection established
+[2025-04-02 22:38:45,997] INFO in customer_app: Query executed: SELECT id FROM users WHERE email = %s
+[2025-04-02 22:38:46,087] INFO in customer_app: Database connection established
+[2025-04-02 22:38:46,093] INFO in customer_app: Query executed and committed: INSERT INTO users 
+               (email, password_hash, full_name, user_type, date_entered, last_login) 
+               VALUES (%s, %s, %s, 'customer', %s, %s)
+[2025-04-02 22:38:46,100] INFO in customer_app: Database connection established
+[2025-04-02 22:38:46,101] INFO in customer_app: Query executed: SELECT id FROM users WHERE email = %s
+[2025-04-02 22:38:46,108] INFO in customer_app: Database connection established
+[2025-04-02 22:38:46,113] INFO in customer_app: Query executed and committed: INSERT INTO customers (user_id) VALUES (%s)
+[2025-04-02 22:38:46,114] INFO in customer_app: New account created for varvind2004@gmail.com
+[2025-04-02 22:38:47,652] INFO in customer_app: Database connection established
+[2025-04-02 22:38:47,653] INFO in customer_app: Query executed: SELECT date_entered, last_login, last_logout 
+               FROM users WHERE id = %s
+[2025-04-02 22:38:51,853] WARNING in customer_app: 404 error: http://127.0.0.1:5000/Chatbot.html
+[2025-04-02 22:39:26,905] INFO in customer_app: Login attempt for email: varvind2004@gmail.com
+[2025-04-02 22:39:27,053] INFO in customer_app: Database connection established
+[2025-04-02 22:39:27,057] INFO in customer_app: Query executed: SELECT * FROM users WHERE email = %s AND user_type = 'customer'
+[2025-04-02 22:39:27,270] INFO in customer_app: Database connection established
+[2025-04-02 22:39:27,278] INFO in customer_app: Query executed and committed: UPDATE users SET last_login = %s WHERE id = %s
+[2025-04-02 22:39:27,298] INFO in customer_app: Database connection established
+[2025-04-02 22:39:27,300] INFO in customer_app: Query executed: SELECT * FROM customers WHERE user_id = %s
+[2025-04-02 22:39:27,302] ERROR in customer_app: Login error: Unread result found
+Traceback (most recent call last):
+  File "c:\Users\varvi\Downloads\AIMCS\Aimcs Backend\customer_app.py", line 169, in login_customer
+    customer_info = execute_query(
+                    ^^^^^^^^^^^^^^
+  File "c:\Users\varvi\Downloads\AIMCS\Aimcs Backend\customer_app.py", line 79, in execute_query
+    if conn and conn.is_connected():
+                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\varvi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 390, in is_connected
+    self.handle_unread_result()
+  File "C:\Users\varvi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1044, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+[2025-04-02 22:39:29,935] INFO in customer_app: Login attempt for email: varvind2004@gmail.com
+[2025-04-02 22:39:29,950] INFO in customer_app: Database connection established
+[2025-04-02 22:39:29,953] INFO in customer_app: Query executed: SELECT * FROM users WHERE email = %s AND user_type = 'customer'
+[2025-04-02 22:39:30,171] INFO in customer_app: Database connection established
+[2025-04-02 22:39:30,177] INFO in customer_app: Query executed and committed: UPDATE users SET last_login = %s WHERE id = %s
+[2025-04-02 22:39:30,191] INFO in customer_app: Database connection established
+[2025-04-02 22:39:30,193] INFO in customer_app: Query executed: SELECT * FROM customers WHERE user_id = %s
+[2025-04-02 22:39:30,194] ERROR in customer_app: Login error: Unread result found
+Traceback (most recent call last):
+  File "c:\Users\varvi\Downloads\AIMCS\Aimcs Backend\customer_app.py", line 169, in login_customer
+    customer_info = execute_query(
+                    ^^^^^^^^^^^^^^
+  File "c:\Users\varvi\Downloads\AIMCS\Aimcs Backend\customer_app.py", line 79, in execute_query
+    if conn and conn.is_connected():
+                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\varvi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 390, in is_connected
+    self.handle_unread_result()
+  File "C:\Users\varvi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1044, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+[2025-04-02 22:39:33,206] INFO in customer_app: Login attempt for email: varvind2004@gmail.com
+[2025-04-02 22:39:33,219] INFO in customer_app: Database connection established
+[2025-04-02 22:39:33,222] INFO in customer_app: Query executed: SELECT * FROM users WHERE email = %s AND user_type = 'customer'
+[2025-04-02 22:39:33,465] INFO in customer_app: Database connection established
+[2025-04-02 22:39:33,473] INFO in customer_app: Query executed and committed: UPDATE users SET last_login = %s WHERE id = %s
+[2025-04-02 22:39:33,489] INFO in customer_app: Database connection established
+[2025-04-02 22:39:33,491] INFO in customer_app: Query executed: SELECT * FROM customers WHERE user_id = %s
+[2025-04-02 22:39:33,492] ERROR in customer_app: Login error: Unread result found
+Traceback (most recent call last):
+  File "c:\Users\varvi\Downloads\AIMCS\Aimcs Backend\customer_app.py", line 169, in login_customer
+    customer_info = execute_query(
+                    ^^^^^^^^^^^^^^
+  File "c:\Users\varvi\Downloads\AIMCS\Aimcs Backend\customer_app.py", line 79, in execute_query
+    if conn and conn.is_connected():
+                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\varvi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 390, in is_connected
+    self.handle_unread_result()
+  File "C:\Users\varvi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1044, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+[2025-04-02 22:39:38,898] INFO in customer_app: Login attempt for email: varvind2004@gmail.com
+[2025-04-02 22:39:38,908] INFO in customer_app: Database connection established
+[2025-04-02 22:39:38,910] INFO in customer_app: Query executed: SELECT * FROM users WHERE email = %s AND user_type = 'customer'
+[2025-04-02 22:39:39,135] INFO in customer_app: Database connection established
+[2025-04-02 22:39:39,142] INFO in customer_app: Query executed and committed: UPDATE users SET last_login = %s WHERE id = %s
+[2025-04-02 22:39:39,161] INFO in customer_app: Database connection established
+[2025-04-02 22:39:39,164] INFO in customer_app: Query executed: SELECT * FROM customers WHERE user_id = %s
+[2025-04-02 22:39:39,165] ERROR in customer_app: Login error: Unread result found
+Traceback (most recent call last):
+  File "c:\Users\varvi\Downloads\AIMCS\Aimcs Backend\customer_app.py", line 169, in login_customer
+    customer_info = execute_query(
+                    ^^^^^^^^^^^^^^
+  File "c:\Users\varvi\Downloads\AIMCS\Aimcs Backend\customer_app.py", line 79, in execute_query
+    if conn and conn.is_connected():
+                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\varvi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 390, in is_connected
+    self.handle_unread_result()
+  File "C:\Users\varvi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1044, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+[2025-04-02 22:39:39,299] INFO in customer_app: Login attempt for email: varvind2004@gmail.com
+[2025-04-02 22:39:39,311] INFO in customer_app: Database connection established
+[2025-04-02 22:39:39,312] INFO in customer_app: Query executed: SELECT * FROM users WHERE email = %s AND user_type = 'customer'
+[2025-04-02 22:39:39,540] INFO in customer_app: Database connection established
+[2025-04-02 22:39:39,546] INFO in customer_app: Query executed and committed: UPDATE users SET last_login = %s WHERE id = %s
+[2025-04-02 22:39:39,556] INFO in customer_app: Database connection established
+[2025-04-02 22:39:39,557] INFO in customer_app: Query executed: SELECT * FROM customers WHERE user_id = %s
+[2025-04-02 22:39:39,558] ERROR in customer_app: Login error: Unread result found
+Traceback (most recent call last):
+  File "c:\Users\varvi\Downloads\AIMCS\Aimcs Backend\customer_app.py", line 169, in login_customer
+    customer_info = execute_query(
+                    ^^^^^^^^^^^^^^
+  File "c:\Users\varvi\Downloads\AIMCS\Aimcs Backend\customer_app.py", line 79, in execute_query
+    if conn and conn.is_connected():
+                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\varvi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 390, in is_connected
+    self.handle_unread_result()
+  File "C:\Users\varvi\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 1044, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+[2025-04-02 22:39:39,617] INFO in customer_app: Login attempt for email: varvind2004@gmail.com
+[2025-04-02 22:39:39,630] INFO in customer_app: Database connection established
+[2025-04-02 22:39:39,632] INFO in customer_app: Query executed: SELECT * FROM users WHERE email = %s AND user_type = 'customer'
+[2025-04-02 22:39:39,886] INFO in customer_app: Database connection established
+[2025-04-02 22:39:39,888] INFO in customer_app: Query executed and committed: UPDATE users SET last_login = %s WHERE id = %s

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Queues | Agent Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Agent Portal/static/css/Queue.css">
+
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="logo-text">AgentHub</div>
+                </a>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="/Agent Portal/templates/Dashboard.html" class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="/Agent Portal/templates/Tickets.html" class="menu-item">
+                    <i class="fas fa-ticket-alt"></i> My Tickets
+                </a>
+                <a href="/Agent Portal/templates/Queue.html" class="menu-item">
+                    <i class="fas fa-inbox"></i> Team Queue
+                </a>
+                <a href="/Agent Portal/templates/Knowledge.html" class="menu-item active">
+                    <i class="fas fa-book"></i> Knowledge Base
+                </a>
+                <a href="/Agent Portal/templates/Analytics.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </a>
+                <a href="/Agent Portal/templates/Settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="User" class="user-avatar">
+                <div class="user-info">
+                    <h4>Sarah Johnson</h4>
+                    <p>Level 3 Support Agent</p>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Team Queues</h1>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <div class="theme-toggle">
+                            <i class="fas fa-sun toggle-icon"></i>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider"></span>
+                            </label>
+                            <i class="fas fa-moon toggle-icon"></i>
+                        </div>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search team tickets...">
+                        </div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <a href="/Agent Portal/templates/index.html" class="logout-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Queue Navigation -->
+            <div class="queue-nav">
+                <a href="#" class="queue-tab active">
+                    Unassigned <span class="queue-badge">14</span>
+                </a>
+                <a href="#" class="queue-tab">
+                    All Open <span class="queue-badge">42</span>
+                </a>
+                <a href="#" class="queue-tab">
+                    High Priority <span class="queue-badge">8</span>
+                </a>
+                <a href="#" class="queue-tab">
+                    SLA at Risk <span class="queue-badge">5</span>
+                </a>
+                <a href="#" class="queue-tab">
+                    Waiting on Customer <span class="queue-badge">12</span>
+                </a>
+                <a href="#" class="queue-tab">
+                    Escalated <span class="queue-badge">3</span>
+                </a>
+            </div>
+            
+            <!-- Queue Stats -->
+            <div class="queue-stats">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Unassigned Tickets</div>
+                        <i class="fas fa-inbox" style="color: var(--primary);"></i>
+                    </div>
+                    <div class="stat-value">14</div>
+                    <div class="stat-change up">
+                        <i class="fas fa-arrow-up"></i> 2 from yesterday
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Oldest Unassigned</div>
+                        <i class="fas fa-clock" style="color: var(--warning);"></i>
+                    </div>
+                    <div class="stat-value">2d 4h</div>
+                    <div class="stat-change down">
+                        <i class="fas fa-arrow-down"></i> 6h improvement
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Avg. Response Time</div>
+                        <i class="fas fa-stopwatch" style="color: var(--danger);"></i>
+                    </div>
+                    <div class="stat-value">1h 22m</div>
+                    <div class="stat-change up">
+                        <i class="fas fa-arrow-up"></i> 18m slower
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">SLA Compliance</div>
+                        <i class="fas fa-percentage" style="color: var(--success);"></i>
+                    </div>
+                    <div class="stat-value">87%</div>
+                    <div class="stat-change down">
+                        <i class="fas fa-arrow-down"></i> 5% from last week
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Queue Table -->
+            <table class="queue-table">
+                <thead>
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>Subject</th>
+                        <th>Requester</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                        <th>SLA Status</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2851</a></td>
+                        <td><a href="#" class="ticket-subject">Critical: Production system down</a></td>
+                        <td>Acme Corp</td>
+                        <td><span class="ticket-status status-new">New</span></td>
+                        <td><span class="ticket-priority priority-high">High</span></td>
+                        <td class="ticket-sla sla-danger">Breached in 12m</td>
+                        <td>15m ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Claim"><i class="fas fa-user-plus"></i></button>
+                                <button class="assign-btn">
+                                    <i class="fas fa-user-tag"></i> Assign
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2850</a></td>
+                        <td><a href="#" class="ticket-subject">Payment gateway integration failing</a></td>
+                        <td>Global Retail</td>
+                        <td><span class="ticket-status status-new">New</span></td>
+                        <td><span class="ticket-priority priority-high">High</span></td>
+                        <td class="ticket-sla sla-warning">Due in 1h 15m</td>
+                        <td>45m ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Claim"><i class="fas fa-user-plus"></i></button>
+                                <button class="assign-btn">
+                                    <i class="fas fa-user-tag"></i> Assign
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2849</a></td>
+                        <td><a href="#" class="ticket-subject">Can't upload large files</a></td>
+                        <td>TechStart Inc</td>
+                        <td><span class="ticket-status status-pending">Pending</span></td>
+                        <td><span class="ticket-priority priority-medium">Medium</span></td>
+                        <td class="ticket-sla sla-normal">Due in 3h</td>
+                        <td>1h ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Claim"><i class="fas fa-user-plus"></i></button>
+                                <button class="assign-btn">
+                                    <i class="fas fa-user-tag"></i> Assign
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2848</a></td>
+                        <td><a href="#" class="ticket-subject">Dashboard widgets not loading</a></td>
+                        <td>DataVision LLC</td>
+                        <td><span class="ticket-status status-open">Open</span></td>
+                        <td><span class="ticket-priority priority-medium">Medium</span></td>
+                        <td class="ticket-sla sla-normal">Due in 5h</td>
+                        <td>2h ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Claim"><i class="fas fa-user-plus"></i></button>
+                                <button class="assign-btn">
+                                    <i class="fas fa-user-tag"></i> Assign
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="ticket-id">#CS-2847</a></td>
+                        <td><a href="#" class="ticket-subject">Feature request: Dark mode toggle</a></td>
+                        <td>UX Design Co</td>
+                        <td><span class="ticket-status status-new">New</span></td>
+                        <td><span class="ticket-priority priority-low">Low</span></td>
+                        <td class="ticket-sla sla-normal">Due in 2d</td>
+                        <td>1d ago</td>
+                        <td>
+                            <div class="ticket-actions">
+                                <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn" title="Claim"><i class="fas fa-user-plus"></i></button>
+                                <button class="assign-btn">
+                                    <i class="fas fa-user-tag"></i> Assign
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Team Members -->
+            <div class="team-members">
+                <h3 class="section-title">Team Members</h3>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex" class="member-avatar">
+                        <div class="member-info">
+                            <h4>Alex Johnson</h4>
+                            <p>Level 3 Support</p>
+                            <div class="member-stats">
+                                <span class="member-stat"><i class="fas fa-ticket-alt"></i> 12</span>
+                                <span class="member-stat"><i class="fas fa-clock"></i> 38m</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily" class="member-avatar">
+                        <div class="member-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Level 2 Support</p>
+                            <div class="member-stats">
+                                <span class="member-stat"><i class="fas fa-ticket-alt"></i> 8</span>
+                                <span class="member-stat"><i class="fas fa-clock"></i> 1h 12m</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael" class="member-avatar">
+                        <div class="member-info">
+                            <h4>Michael Chen</h4>
+                            <p>Technical Lead</p>
+                            <div class="member-stats">
+                                <span class="member-stat"><i class="fas fa-ticket-alt"></i> 5</span>
+                                <span class="member-stat"><i class="fas fa-clock"></i> 24m</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Priya" class="member-avatar">
+                        <div class="member-info">
+                            <h4>Priya Patel</h4>
+                            <p>Level 1 Support</p>
+                            <div class="member-stats">
+                                <span class="member-stat"><i class="fas fa-ticket-alt"></i> 15</span>
+                                <span class="member-stat"><i class="fas fa-clock"></i> 52m</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/Agent Portal/static/js/Queue.js"></script>
+</body>
+</html>

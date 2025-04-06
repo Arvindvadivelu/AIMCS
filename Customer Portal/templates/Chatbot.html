@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Support Assistant | SupportHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Customer Portal/static/css/chatbot.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="portal-header">
+        <div class="container header-content">
+            <a href="#" class="logo" onclick="loadPage('home')">
+                <div class="logo-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="logo-text">SupportHub</div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="/Customer Portal/templates/Home.html" class="nav-link" id="home-link" onclick="loadPage('home')">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="Chatbot.html" class="nav-link" id="kb-link" onclick="loadPage('kb')">
+                    <i class="fas fa-robot"></i> Chatbot
+                </a>
+                <a href="Home.html#tickets-page" class="nav-link" id="tickets-link" onclick="loadPage('tickets')">
+                    <i class="fas fa-ticket-alt"></i> My Tickets
+                </a>
+                <a href="Home.html#knowledge-base" class="nav-link" id="kb-link" onclick="loadPage('kb')">
+                    <i class="fas fa-book"></i> Knowledge Base
+                </a>
+                <a href="Home.html#contact" class="nav-link" id="contact-link" onclick="loadPage('contact')">
+                    <i class="fas fa-phone-alt"></i> Contact
+                </a>
+            </nav>
+            
+            <div class="user-menu">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i> Dark Mode
+                </button>
+                <div class="user-avatar-container">
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="User" class="user-avatar" id="user-avatar">
+                    <div class="user-dropdown" id="user-dropdown">
+                        <a href="/Customer Portal/templates/settings.html" class="dropdown-item">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <a href="login.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="chatbot-main">
+        <div class="container">
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <div class="chatbot-info">
+                        <div class="chatbot-avatar">
+                            <div class="avatar-circle">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="status-indicator online"></div>
+                        </div>
+                        <div class="chatbot-meta">
+                            <h1 class="chatbot-title">AI Support Assistant</h1>
+                            <div class="chatbot-status">
+                                <span class="status-text">Online</span>
+                                <span class="response-time">Typically replies in seconds</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chatbot-actions">
+                        <button class="action-btn" id="clear-chat-btn" title="Clear conversation">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        <button class="action-btn" id="minimize-btn" title="Minimize">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="chatbot-body" id="chatbot-messages">
+                    <!-- Welcome message -->
+                    <div class="message-container welcome-message">
+                        <div class="message message-bot">
+                            <div class="message-content">
+                                <div class="message-text">
+                                    <h3>Hello Sarah! 👋</h3>
+                                    <p>I'm your AI-powered support assistant. I can help you with:</p>
+                                    <ul class="assistant-capabilities">
+                                        <li><i class="fas fa-check-circle"></i> Account & billing questions</li>
+                                        <li><i class="fas fa-check-circle"></i> Technical troubleshooting</li>
+                                        <li><i class="fas fa-check-circle"></i> Product information</li>
+                                        <li><i class="fas fa-check-circle"></i> Ticket status updates</li>
+                                    </ul>
+                                    <p>How can I assist you today?</p>
+                                </div>
+                                <div class="quick-replies">
+                                    <button class="quick-reply-btn" onclick="sendSuggestion('How do I reset my password?')">
+                                        <i class="fas fa-key"></i> Password help
+                                    </button>
+                                    <button class="quick-reply-btn" onclick="sendSuggestion('I need billing support')">
+                                        <i class="fas fa-credit-card"></i> Billing question
+                                    </button>
+                                    <button class="quick-reply-btn" onclick="sendSuggestion('Technical issue')">
+                                        <i class="fas fa-bug"></i> Report a problem
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="message-footer">
+                                <span class="message-time">Just now</span>
+                                <div class="message-actions">
+                                    <button class="message-action-btn" title="Copy">
+                                        <i class="far fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chatbot-footer">
+                    <!-- Suggested questions -->
+                    <div class="suggested-questions">
+                        <div class="suggested-questions-header">
+                            <span>Quick questions:</span>
+                        </div>
+                        <div class="suggested-questions-list">
+                            <button class="suggested-question" onclick="sendSuggestion('How do I update my payment method?')">
+                                Update payment
+                            </button>
+                            <button class="suggested-question" onclick="sendSuggestion('Where can I find my invoices?')">
+                                Access invoices
+                            </button>
+                            <button class="suggested-question" onclick="sendSuggestion('How do I contact support?')">
+                                Contact options
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Input area -->
+                    <div class="chat-input-container">
+                        <div class="input-toolbar">
+                            <button class="toolbar-btn" title="Attach file">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button class="toolbar-btn" title="Insert emoji">
+                                <i class="far fa-smile"></i>
+                            </button>
+                        </div>
+                        <div class="input-wrapper">
+                            <textarea id="chatbot-input" class="chatbot-input" placeholder="Type your message here..." rows="1"></textarea>
+                            <button id="chatbot-send-btn" class="send-btn" title="Send message">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <div class="chatbot-disclaimer">
+                        <p><i class="fas fa-info-circle"></i> AI assistant may occasionally generate inaccurate information. For critical issues, please contact our support team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="portal-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Support</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Contact Us</a></li>
+                        <li class="footer-link"><a href="#">Help Center</a></li>
+                        <li class="footer-link"><a href="#">Live Chat</a></li>
+                        <li class="footer-link"><a href="#">System Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Knowledge Base</a></li>
+                        <li class="footer-link"><a href="#">Community Forum</a></li>
+                        <li class="footer-link"><a href="#">Webinars</a></li>
+                        <li class="footer-link"><a href="#">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Company</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">About Us</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Connect</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li class="footer-link"><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li class="footer-link"><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li class="footer-link"><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 SupportHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="/Customer Portal/static/js/chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base | Agent Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Agent Portal/static/css/Knowledge.css">
+
+        
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="logo-text">AgentHub</div>
+                </a>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="/Agent Portal/templates/Dashboard.html" class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="/Agent Portal/templates/Tickets.html" class="menu-item">
+                    <i class="fas fa-ticket-alt"></i> My Tickets
+                </a>
+                <a href="/Agent Portal/templates/Queue.html" class="menu-item">
+                    <i class="fas fa-inbox"></i> Team Queue
+                </a>
+                <a href="/Agent Portal/templates/Knowledge.html" class="menu-item active">
+                    <i class="fas fa-book"></i> Knowledge Base
+                </a>
+                <a href="/Agent Portal/templates/Analytics.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </a>
+                <a href="/Agent Portal/templates/Settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="User" class="user-avatar">
+                <div class="user-info">
+                    <h4>Sarah Johnson</h4>
+                    <p>Level 3 Support Agent</p>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Knowledge Base</h1>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <div class="theme-toggle">
+                            <i class="fas fa-sun toggle-icon"></i>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider"></span>
+                            </label>
+                            <i class="fas fa-moon toggle-icon"></i>
+                        </div>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search knowledge base...">
+                        </div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <a href="/Agent Portal/templates/index.html" class="logout-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Knowledge Base Header -->
+            <div class="kb-header">
+                <h2 class="kb-title">Categories</h2>
+                <button class="new-article-btn">
+                    <i class="fas fa-plus"></i> New Article
+                </button>
+            </div>
+            
+            <!-- Categories Grid -->
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div>
+                            <h3 class="category-name">Technical Support</h3>
+                            <span class="category-count">24 articles</span>
+                        </div>
+                    </div>
+                    <p class="category-desc">Troubleshooting guides, technical documentation, and system requirements.</p>
+                    <a href="#" class="view-category">
+                        View Category <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div>
+                            <h3 class="category-name">Billing & Payments</h3>
+                            <span class="category-count">18 articles</span>
+                        </div>
+                    </div>
+                    <p class="category-desc">Payment methods, invoices, subscriptions, and billing questions.</p>
+                    <a href="#" class="view-category">
+                        View Category <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <div>
+                            <h3 class="category-name">Account Management</h3>
+                            <span class="category-count">15 articles</span>
+                        </div>
+                    </div>
+                    <p class="category-desc">Account setup, security, password reset, and profile management.</p>
+                    <a href="#" class="view-category">
+                        View Category <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <div>
+                            <h3 class="category-name">Integrations</h3>
+                            <span class="category-count">12 articles</span>
+                        </div>
+                    </div>
+                    <p class="category-desc">API documentation, third-party integrations, and webhooks.</p>
+                    <a href="#" class="view-category">
+                        View Category <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="category-name">Training</h3>
+                            <span class="category-count">8 articles</span>
+                        </div>
+                    </div>
+                    <p class="category-desc">Getting started guides, video tutorials, and best practices.</p>
+                    <a href="#" class="view-category">
+                        View Category <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div>
+                            <h3 class="category-name">FAQ</h3>
+                            <span class="category-count">32 articles</span>
+                        </div>
+                    </div>
+                    <p class="category-desc">Frequently asked questions and quick solutions to common issues.</p>
+                    <a href="#" class="view-category">
+                        View Category <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Popular Articles -->
+            <div class="articles-container">
+                <div class="articles-header">
+                    <h3 class="articles-title">Popular Articles</h3>
+                    <a href="#" class="view-all">
+                        View All <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <ul class="articles-list">
+                    <li class="article-item">
+                        <a href="#" class="article-link">How to reset your password</a>
+                        <div class="article-meta">
+                            <span>Technical Support</span>
+                            <span>Updated 2 days ago</span>
+                            <span>1,243 views</span>
+                        </div>
+                    </li>
+                    
+                    <li class="article-item">
+                        <a href="#" class="article-link">Understanding your invoice</a>
+                        <div class="article-meta">
+                            <span>Billing & Payments</span>
+                            <span>Updated 1 week ago</span>
+                            <span>987 views</span>
+                        </div>
+                    </li>
+                    
+                    <li class="article-item">
+                        <a href="#" class="article-link">API authentication guide</a>
+                        <div class="article-meta">
+                            <span>Integrations</span>
+                            <span>Updated 3 weeks ago</span>
+                            <span>756 views</span>
+                        </div>
+                    </li>
+                    
+                    <li class="article-item">
+                        <a href="#" class="article-link">Two-factor authentication setup</a>
+                        <div class="article-meta">
+                            <span>Account Management</span>
+                            <span>Updated 1 month ago</span>
+                            <span>632 views</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Recent Updates -->
+            <div class="updates-container">
+                <div class="updates-header">
+                    <h3 class="updates-title">Recent Updates</h3>
+                    <a href="#" class="view-all">
+                        View All <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <ul class="updates-list">
+                    <li class="update-item">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex" class="update-avatar">
+                        <div class="update-content">
+                            <p class="update-text">
+                                <strong>Alex Johnson</strong> updated the article 
+                                <a href="#" class="update-article">How to troubleshoot connection issues</a>
+                            </p>
+                            <div class="update-meta">
+                                <span>Technical Support</span>
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="update-item">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily" class="update-avatar">
+                        <div class="update-content">
+                            <p class="update-text">
+                                <strong>Emily Rodriguez</strong> created a new article 
+                                <a href="#" class="update-article">New payment methods available</a>
+                            </p>
+                            <div class="update-meta">
+                                <span>Billing & Payments</span>
+                                <span>1 day ago</span>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="update-item">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael" class="update-avatar">
+                        <div class="update-content">
+                            <p class="update-text">
+                                <strong>Michael Chen</strong> updated the API documentation for 
+                                <a href="#" class="update-article">Version 2.3 release</a>
+                            </p>
+                            <div class="update-meta">
+                                <span>Integrations</span>
+                                <span>3 days ago</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="/Agent Portal/static/js/Knowledge.js"></script>
+</body>
+</html>

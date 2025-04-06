@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings | SupportHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Customer Portal/static/css/settings.css">
+</head>
+<body>
+    <header class="portal-header">
+        <div class="container header-content">
+            <a href="Home.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="logo-text">SupportHub</div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="/Customer Portal/templates/Home.html" class="nav-link" id="home-link" onclick="loadPage('home')">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="Chatbot.html" class="nav-link" id="kb-link" onclick="loadPage('kb')">
+                    <i class="fas fa-robot"></i> Chatbot
+                </a>
+                <a href="Home.html#tickets-page" class="nav-link" id="tickets-link" onclick="loadPage('tickets')">
+                    <i class="fas fa-ticket-alt"></i> My Tickets
+                </a>
+                <a href="Home.html#knowledge-base" class="nav-link" id="kb-link" onclick="loadPage('kb')">
+                    <i class="fas fa-book"></i> Knowledge Base
+                </a>
+                <a href="Home.html#contact" class="nav-link" id="contact-link" onclick="loadPage('contact')">
+                    <i class="fas fa-phone-alt"></i> Contact
+                </a>
+            </nav>
+            
+            
+            <div class="user-menu">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i> Dark Mode
+                </button>
+                <div class="user-avatar-container">
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="User" class="user-avatar" id="user-avatar">
+                    <div class="user-dropdown" id="user-dropdown">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                        <a href="settings.html" class="dropdown-item active">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <a href="/Customer Portal/templates/login.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="settings-main">
+        <div class="container">
+            <div class="settings-container">
+                <div class="settings-sidebar">
+                    <h2 class="settings-title">Settings</h2>
+                    <nav class="settings-nav">
+                        <a href="#account" class="settings-nav-link active" data-section="account">
+                            <i class="fas fa-user-cog"></i> Account
+                        </a>
+                        <a href="#security" class="settings-nav-link" data-section="security">
+                            <i class="fas fa-shield-alt"></i> Security
+                        </a>
+                        <a href="#notifications" class="settings-nav-link" data-section="notifications">
+                            <i class="fas fa-bell"></i> Notifications
+                        </a>
+                        <a href="#privacy" class="settings-nav-link" data-section="privacy">
+                            <i class="fas fa-lock"></i> Privacy
+                        </a>
+                      
+                    </nav>
+                </div>
+                
+                <div class="settings-content">
+                    <!-- Account Settings Section -->
+                    <section id="account-section" class="settings-section active">
+                        <div class="section-header">
+                            <h2 class="section-title">
+                                <i class="fas fa-user-cog"></i> Account Settings
+                            </h2>
+                            <p class="section-description">Manage your account information and personal details</p>
+                        </div>
+                        
+                        <form id="account-form" class="settings-form">
+                            <div class="form-group">
+                                <label for="profile-picture" class="form-label">Profile Picture</label>
+                                <div class="profile-picture-container">
+                                    <div class="profile-picture-preview">
+                                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Profile" id="profile-preview">
+                                        <div class="profile-picture-overlay">
+                                            <i class="fas fa-camera"></i>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="profile-picture" accept="image/*" style="display: none;">
+                                    <button type="button" class="btn-secondary" id="upload-profile-btn">
+                                        Change Picture
+                                    </button>
+                                    <button type="button" class="btn-text" id="remove-profile-btn">
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name" class="form-label">First Name</label>
+                                    <input type="text" id="first-name" class="form-control" value="Sarah" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name" class="form-label">Last Name</label>
+                                    <input type="text" id="last-name" class="form-control" value="Johnson" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" class="form-control" value="sarah.johnson@example.com" required>
+                                <div class="form-note">This is the email address you use to log in</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" value="+1 (555) 123-4567">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="timezone" class="form-label">Timezone</label>
+                                <select id="timezone" class="form-control">
+                                    <option value="-12:00">(GMT-12:00) International Date Line West</option>
+                                    <option value="-11:00">(GMT-11:00) Midway Island, Samoa</option>
+                                    <option value="-10:00">(GMT-10:00) Hawaii</option>
+                                    <option value="-09:00">(GMT-09:00) Alaska</option>
+                                    <option value="-08:00">(GMT-08:00) Pacific Time (US & Canada)</option>
+                                    <option value="-07:00">(GMT-07:00) Mountain Time (US & Canada)</option>
+                                    <option value="-06:00">(GMT-06:00) Central Time (US & Canada)</option>
+                                    <option value="-05:00" selected>(GMT-05:00) Eastern Time (US & Canada)</option>
+                                    <option value="-04:00">(GMT-04:00) Atlantic Time (Canada)</option>
+                                    <option value="-03:30">(GMT-03:30) Newfoundland</option>
+                                    <option value="-03:00">(GMT-03:00) Brasilia, Buenos Aires, Georgetown</option>
+                                    <option value="-02:00">(GMT-02:00) Mid-Atlantic</option>
+                                    <option value="-01:00">(GMT-01:00) Azores, Cape Verde Islands</option>
+                                    <option value="+00:00">(GMT+00:00) London, Dublin, Lisbon</option>
+                                    <option value="+01:00">(GMT+01:00) Amsterdam, Berlin, Rome, Paris</option>
+                                    <option value="+02:00">(GMT+02:00) Athens, Istanbul, Cairo</option>
+                                    <option value="+03:00">(GMT+03:00) Moscow, St. Petersburg, Kuwait</option>
+                                    <option value="+03:30">(GMT+03:30) Tehran</option>
+                                    <option value="+04:00">(GMT+04:00) Abu Dhabi, Muscat, Baku</option>
+                                    <option value="+04:30">(GMT+04:30) Kabul</option>
+                                    <option value="+05:00">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
+                                    <option value="+05:30">(GMT+05:30) Mumbai, Kolkata, Chennai</option>
+                                    <option value="+05:45">(GMT+05:45) Kathmandu</option>
+                                    <option value="+06:00">(GMT+06:00) Astana, Dhaka</option>
+                                    <option value="+06:30">(GMT+06:30) Yangon (Rangoon)</option>
+                                    <option value="+07:00">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+                                    <option value="+08:00">(GMT+08:00) Beijing, Hong Kong, Singapore</option>
+                                    <option value="+09:00">(GMT+09:00) Tokyo, Seoul, Osaka</option>
+                                    <option value="+09:30">(GMT+09:30) Adelaide, Darwin</option>
+                                    <option value="+10:00">(GMT+10:00) Sydney, Melbourne, Guam</option>
+                                    <option value="+11:00">(GMT+11:00) Magadan, Solomon Islands</option>
+                                    <option value="+12:00">(GMT+12:00) Auckland, Wellington, Fiji</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" id="cancel-account-changes">
+                                    Cancel
+                                </button>
+                                <button type="submit" class="btn-primary">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+                    
+                    <!-- Security Settings Section -->
+                    <section id="security-section" class="settings-section">
+                        <div class="section-header">
+                            <h2 class="section-title">
+                                <i class="fas fa-shield-alt"></i> Security Settings
+                            </h2>
+                            <p class="section-description">Manage your account security and authentication</p>
+                        </div>
+                        
+                        <form id="security-form" class="settings-form">
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <h3 class="security-title">Password</h3>
+                                    <p class="security-description">Last changed 3 months ago</p>
+                                </div>
+                                <button type="button" class="btn-secondary" id="change-password-btn">
+                                    Change Password
+                                </button>
+                            </div>
+                            
+                            <div id="password-change-form" style="display: none;">
+                                <div class="form-group">
+                                    <label for="current-password" class="form-label">Current Password</label>
+                                    <input type="password" id="current-password" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="new-password" class="form-label">New Password</label>
+                                    <input type="password" id="new-password" class="form-control" required>
+                                    <div class="password-strength">
+                                        <div class="strength-meter">
+                                            <div class="strength-bar" id="strength-bar"></div>
+                                        </div>
+                                        <div class="strength-text" id="strength-text">Weak</div>
+                                    </div>
+                                    <div class="form-note">
+                                        Password must be at least 8 characters long and contain:
+                                        <ul>
+                                            <li>One uppercase letter</li>
+                                            <li>One lowercase letter</li>
+                                            <li>One number</li>
+                                            <li>One special character</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="confirm-password" class="form-label">Confirm New Password</label>
+                                    <input type="password" id="confirm-password" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="button" class="btn-text" id="cancel-password-change">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" class="btn-primary">
+                                        Update Password
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <h3 class="security-title">Two-Factor Authentication</h3>
+                                    <p class="security-description">Add an extra layer of security to your account</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="two-factor-toggle" class="toggle-input">
+                                    <label for="two-factor-toggle" class="toggle-label"></label>
+                                </div>
+                            </div>
+                            
+                            <div id="two-factor-setup" style="display: none; margin-top: 20px;">
+                                <div class="form-group">
+                                    <label class="form-label">Setup Method</label>
+                                    <div class="radio-group">
+                                        <label class="radio-option">
+                                            <input type="radio" name="two-factor-method" value="authenticator" checked>
+                                            <span class="radio-checkmark"></span>
+                                            <span class="radio-label">Authenticator App</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="two-factor-method" value="sms">
+                                            <span class="radio-checkmark"></span>
+                                            <span class="radio-label">SMS Text Message</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="two-factor-method" value="email">
+                                            <span class="radio-checkmark"></span>
+                                            <span class="radio-label">Email Verification</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div id="authenticator-setup">
+                                    <div class="form-group">
+                                        <p>Scan the QR code below with your authenticator app:</p>
+                                        <div class="qr-code-placeholder">
+                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=otpauth://totp/SupportHub:sarah.johnson@example.com?secret=JBSWY3DPEHPK3PXP&issuer=SupportHub" alt="QR Code">
+                                        </div>
+                                        <p class="form-note">Or enter this code manually: <strong>JBSWY3DPEHPK3PXP</strong></p>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="verification-code" class="form-label">Verification Code</label>
+                                        <input type="text" id="verification-code" class="form-control" placeholder="Enter 6-digit code">
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="button" class="btn-primary">
+                                            Verify & Enable
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div id="sms-setup" style="display: none;">
+                                    <div class="form-group">
+                                        <label for="sms-phone" class="form-label">Phone Number</label>
+                                        <input type="tel" id="sms-phone" class="form-control" value="+1 (555) 123-4567">
+                                        <p class="form-note">We'll send a verification code to this number</p>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="button" class="btn-primary">
+                                            Send Verification Code
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div id="email-setup" style="display: none;">
+                                    <div class="form-group">
+                                        <p>We'll send a verification code to your email address:</p>
+                                        <p><strong>sarah.johnson@example.com</strong></p>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="button" class="btn-primary">
+                                            Send Verification Code
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <h3 class="security-title">Active Sessions</h3>
+                                    <p class="security-description">View and manage your logged-in devices</p>
+                                </div>
+                                <button type="button" class="btn-text" id="view-sessions-btn">
+                                    View All
+                                </button>
+                            </div>
+                            
+                            <div class="sessions-list">
+                                <div class="session-item current">
+                                    <div class="session-icon">
+                                        <i class="fas fa-laptop"></i>
+                                    </div>
+                                    <div class="session-info">
+                                        <h4 class="session-device">MacBook Pro (Chrome)</h4>
+                                        <p class="session-details">
+                                            <span class="session-location">New York, NY, USA</span>
+                                            <span class="session-ip">IP: 192.168.1.105</span>
+                                            <span class="session-time">Current session - Active now</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="session-item">
+                                    <div class="session-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="session-info">
+                                        <h4 class="session-device">iPhone 13 (Safari)</h4>
+                                        <p class="session-details">
+                                            <span class="session-location">Boston, MA, USA</span>
+                                            <span class="session-ip">IP: 172.56.23.198</span>
+                                            <span class="session-time">Last active: 2 hours ago</span>
+                                        </p>
+                                    </div>
+                                    <button type="button" class="btn-text btn-danger">
+                                        Sign Out
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                    
+                    <!-- Notification Settings Section -->
+                    <section id="notifications-section" class="settings-section">
+                        <div class="section-header">
+                            <h2 class="section-title">
+                                <i class="fas fa-bell"></i> Notification Settings
+                            </h2>
+                            <p class="section-description">Manage how you receive notifications from SupportHub</p>
+                        </div>
+                        
+                        <form id="notifications-form" class="settings-form">
+                            <div class="notification-category">
+                                <h3 class="notification-category-title">Email Notifications</h3>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">Support Tickets</h4>
+                                        <p class="notification-description">Updates on your support tickets</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="ticket-emails" class="toggle-input" checked>
+                                        <label for="ticket-emails" class="toggle-label"></label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">Announcements</h4>
+                                        <p class="notification-description">Product updates and news</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="announcement-emails" class="toggle-input" checked>
+                                        <label for="announcement-emails" class="toggle-label"></label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">Promotions</h4>
+                                        <p class="notification-description">Special offers and discounts</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="promotion-emails" class="toggle-input">
+                                        <label for="promotion-emails" class="toggle-label"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-category">
+                                <h3 class="notification-category-title">In-App Notifications</h3>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">New Messages</h4>
+                                        <p class="notification-description">When you receive new support messages</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="message-notifications" class="toggle-input" checked>
+                                        <label for="message-notifications" class="toggle-label"></label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">Ticket Updates</h4>
+                                        <p class="notification-description">When your ticket status changes</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="ticket-notifications" class="toggle-input" checked>
+                                        <label for="ticket-notifications" class="toggle-label"></label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">System Alerts</h4>
+                                        <p class="notification-description">Important system notifications</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="system-notifications" class="toggle-input" checked>
+                                        <label for="system-notifications" class="toggle-label"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-category">
+                                <h3 class="notification-category-title">Push Notifications</h3>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <h4 class="notification-title">Enable Push Notifications</h4>
+                                        <p class="notification-description">Receive notifications on your device</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="push-notifications" class="toggle-input">
+                                        <label for="push-notifications" class="toggle-label"></label>
+                                    </div>
+                                </div>
+                                
+                                <div id="push-notification-settings" style="display: none; margin-top: 15px;">
+                                    <div class="form-group">
+                                        <label class="form-label">Notification Types</label>
+                                        <div class="checkbox-group">
+                                            <label class="checkbox-option">
+                                                <input type="checkbox" name="push-types" value="messages" checked>
+                                                <span class="checkbox-checkmark"></span>
+                                                <span class="checkbox-label">New Messages</span>
+                                            </label>
+                                            <label class="checkbox-option">
+                                                <input type="checkbox" name="push-types" value="updates" checked>
+                                                <span class="checkbox-checkmark"></span>
+                                                <span class="checkbox-label">Ticket Updates</span>
+                                            </label>
+                                            <label class="checkbox-option">
+                                                <input type="checkbox" name="push-types" value="alerts">
+                                                <span class="checkbox-checkmark"></span>
+                                                <span class="checkbox-label">System Alerts</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">Notification Sound</label>
+                                        <select class="form-control">
+                                            <option value="default">Default</option>
+                                            <option value="chime">Chime</option>
+                                            <option value="ding">Ding</option>
+                                            <option value="bell">Bell</option>
+                                            <option value="none">None</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" id="reset-notifications">
+                                    Reset to Defaults
+                                </button>
+                                <button type="submit" class="btn-primary">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+                    
+                    <!-- Privacy Settings Section -->
+                    <section id="privacy-section" class="settings-section">
+                        <div class="section-header">
+                            <h2 class="section-title">
+                                <i class="fas fa-lock"></i> Privacy Settings
+                            </h2>
+                            <p class="section-description">Control your privacy and data sharing preferences</p>
+                        </div>
+                        
+                        <form id="privacy-form" class="settings-form">
+                            <div class="privacy-item">
+                                <div class="privacy-info">
+                                    <h3 class="privacy-title">Data Collection</h3>
+                                    <p class="privacy-description">Allow us to collect usage data to improve our services</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="data-collection" class="toggle-input" checked>
+                                    <label for="data-collection" class="toggle-label"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="privacy-item">
+                                <div class="privacy-info">
+                                    <h3 class="privacy-title">Personalized Recommendations</h3>
+                                    <p class="privacy-description">Receive personalized help articles and solutions</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="personalized-recommendations" class="toggle-input" checked>
+                                    <label for="personalized-recommendations" class="toggle-label"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="privacy-item">
+                                <div class="privacy-info">
+                                    <h3 class="privacy-title">Activity Tracking</h3>
+                                    <p class="privacy-description">Save your recent searches and viewed articles</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="activity-tracking" class="toggle-input">
+                                    <label for="activity-tracking" class="toggle-label"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="privacy-item">
+                                <div class="privacy-info">
+                                    <h3 class="privacy-title">Third-Party Sharing</h3>
+                                    <p class="privacy-description">Share anonymized data with trusted partners</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="third-party-sharing" class="toggle-input">
+                                    <label for="third-party-sharing" class="toggle-label"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Data Retention</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="data-retention" value="30" checked>
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">30 days</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="data-retention" value="90">
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">90 days</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="data-retention" value="365">
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">1 year</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="data-retention" value="forever">
+                                        <span class="radio-checkmark"></span>
+                                        <span class="radio-label">Indefinitely</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" id="export-data-btn">
+                                    <i class="fas fa-download"></i> Export My Data
+                                </button>
+                                <button type="button" class="btn-danger" id="delete-account-btn">
+                                    <i class="fas fa-trash"></i> Delete Account
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="portal-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Support</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Contact Us</a></li>
+                        <li class="footer-link"><a href="#">Help Center</a></li>
+                        <li class="footer-link"><a href="#">Live Chat</a></li>
+                        <li class="footer-link"><a href="#">System Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Knowledge Base</a></li>
+                        <li class="footer-link"><a href="#">Community Forum</a></li>
+                        <li class="footer-link"><a href="#">Webinars</a></li>
+                        <li class="footer-link"><a href="#">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Company</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">About Us</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Connect</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li class="footer-link"><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li class="footer-link"><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li class="footer-link"><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 SupportHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="/Customer Portal/static/js/settings.js"></script>
+</body>
+</html>

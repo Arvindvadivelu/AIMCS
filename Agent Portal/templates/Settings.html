@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Agent Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Agent Portal/static/css/Settings.css">
+
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="logo-text">AgentHub</div>
+                </a>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="/Agent Portal/templates/Dashboard.html" class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="/Agent Portal/templates/Tickets.html" class="menu-item">
+                    <i class="fas fa-ticket-alt"></i> My Tickets
+                </a>
+                <a href="/Agent Portal/templates/Queue.html" class="menu-item">
+                    <i class="fas fa-inbox"></i> Team Queue
+                </a>
+                <a href="/Agent Portal/templates/Knowledge.html" class="menu-item">
+                    <i class="fas fa-book"></i> Knowledge Base
+                </a>
+                <a href="/Agent Portal/templates/Analytics.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </a>
+                <a href="/Agent Portal/templates/Settings.html" class="menu-item active">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </nav>
+            <div class="user-profile">
+                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="User" class="user-avatar">
+                <div class="user-info">
+                    <h4>Sarah Johnson</h4>
+                    <p>Level 3 Support Agent</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Settings</h1>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <div class="theme-toggle">
+                            <i class="fas fa-sun toggle-icon"></i>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider"></span>
+                            </label>
+                            <i class="fas fa-moon toggle-icon"></i>
+                        </div>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search settings...">
+                        </div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <a href="/Agent Portal/templates/index.html" class="logout-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+
+            <div class="settings-container">
+                <!-- Settings Navigation -->
+                <nav class="settings-nav">
+                    <a href="#profile" class="settings-nav-item active">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <a href="#teams" class="settings-nav-item">
+                        <i class="fas fa-users"></i> Teams
+                    </a>
+                    <a href="#notifications" class="settings-nav-item">
+                        <i class="fas fa-bell"></i> Notifications
+                    </a>
+                    <a href="#integrations" class="settings-nav-item">
+                        <i class="fas fa-plug"></i> Integrations
+                    </a>
+                    <a href="#preferences" class="settings-nav-item">
+                        <i class="fas fa-sliders-h"></i> Preferences
+                    </a>
+                    <a href="#security" class="settings-nav-item">
+                        <i class="fas fa-shield-alt"></i> Security
+                    </a>
+                </nav>
+
+                <!-- Settings Content -->
+                <div class="settings-content">
+                    <!-- Profile Section -->
+                    <section id="profile" class="settings-section active">
+                        <h2 class="section-title">Profile Settings</h2>
+
+                        <div class="form-group">
+                            <div class="avatar-upload">
+                                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Avatar"
+                                    class="avatar-preview">
+                                <div>
+                                    <button class="btn btn-secondary avatar-upload-btn">
+                                        <i class="fas fa-camera"></i> Change Photo
+                                        <input type="file" accept="image/*">
+                                    </button>
+                                    <p class="form-text">JPG, GIF or PNG. Max size of 2MB</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" id="firstName" class="form-control" value="Sarah">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" id="lastName" class="form-control" value="Johnson">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" value="sarah.johnson@example.com">
+                        </div>
+
+                        <!-- Added Team Dropdown -->
+                        <div class="form-group">
+                            <label for="team" class="form-label">Team</label>
+                            <select id="team" class="form-control">
+                                <option value="">Select your team</option>
+                                <option value="technical" selected>Technical Team</option>
+                                <option value="billing">Billing</option>
+                                <option value="account">Account</option>
+                                <option value="sales">Sales</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea id="bio" class="form-control"
+                                rows="3">Level 3 Support Agent with 5 years of experience specializing in technical support and customer satisfaction.</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Team Section -->
+                    <section id="teams" class="settings-section">
+                        <h2 class="section-title">Team Management</h2>
+
+                        <div class="form-group">
+                            <div class="team-header">
+                                <h3 class="form-label">Team Members</h3>
+                                <button class="btn btn-primary" id="add-member-btn">
+                                    <i class="fas fa-plus"></i> Add Member
+                                </button>
+                            </div>
+
+                            <div class="team-list">
+                                <div class="team-member">
+                                    <div class="team-member-info">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                            class="team-member-avatar">
+                                        <div>
+                                            <div class="team-member-name">Alex Johnson</div>
+                                            <div class="team-member-role">Level 3 Support Agent</div>
+                                        </div>
+                                    </div>
+                                    <div class="team-member-actions">
+                                        <button class="action-btn edit-member" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="action-btn remove-member" title="Remove">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="team-member">
+                                    <div class="team-member-info">
+                                        <img src="https://randomuser.me/api/portraits/women/65.jpg"
+                                            class="team-member-avatar">
+                                        <div>
+                                            <div class="team-member-name">Emily Rodriguez</div>
+                                            <div class="team-member-role">Level 2 Support Agent</div>
+                                        </div>
+                                    </div>
+                                    <div class="team-member-actions">
+                                        <button class="action-btn edit-member" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="action-btn remove-member" title="Remove">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="team-member">
+                                    <div class="team-member-info">
+                                        <img src="https://randomuser.me/api/portraits/men/75.jpg"
+                                            class="team-member-avatar">
+                                        <div>
+                                            <div class="team-member-name">Michael Chen</div>
+                                            <div class="team-member-role">Level 1 Support Agent</div>
+                                        </div>
+                                    </div>
+                                    <div class="team-member-actions">
+                                        <button class="action-btn edit-member" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="action-btn remove-member" title="Remove">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="form-label">Team Permissions</h3>
+                            <div class="permissions-container">
+                                <div class="form-group">
+                                    <div class="toggle-container">
+                                        <label class="toggle-sm">
+                                            <input type="checkbox" class="permission-toggle"
+                                                data-permission="manage-tickets" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                        <span>Allow team members to manage tickets</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="toggle-container">
+                                        <label class="toggle-sm">
+                                            <input type="checkbox" class="permission-toggle"
+                                                data-permission="edit-knowledge" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                        <span>Allow team members to edit knowledge base</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="toggle-container">
+                                        <label class="toggle-sm">
+                                            <input type="checkbox" class="permission-toggle"
+                                                data-permission="view-analytics">
+                                            <span class="slider"></span>
+                                        </label>
+                                        <span>Allow team members to view analytics</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="toggle-container">
+                                        <label class="toggle-sm">
+                                            <input type="checkbox" class="permission-toggle"
+                                                data-permission="manage-settings">
+                                            <span class="slider"></span>
+                                        </label>
+                                        <span>Allow team members to manage settings</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="save-team-settings">
+                                <i class="fas fa-save"></i> Save Team Settings
+                            </button>
+                        </div>
+
+                        <!-- Add Member Modal -->
+                        <div class="modal" id="add-member-modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>Add Team Member</h3>
+                                    <button class="modal-close">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="add-member-form">
+                                        <div class="form-group">
+                                            <label for="member-name">Full Name</label>
+                                            <input type="text" id="member-name" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="member-email">Email</label>
+                                            <input type="email" id="member-email" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="member-role">Role</label>
+                                            <select id="member-role" class="form-control" required>
+                                                <option value="">Select Role</option>
+                                                <option value="Level 1 Support Agent">Level 1 Support Agent</option>
+                                                <option value="Level 2 Support Agent">Level 2 Support Agent</option>
+                                                <option value="Level 3 Support Agent">Level 3 Support Agent</option>
+                                                <option value="Team Lead">Team Lead</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="button"
+                                                class="btn btn-outline cancel-add-member">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Add Member</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Integrations Section -->
+                    <section id="integrations" class="settings-section">
+                        <h2 class="section-title">Integrations</h2>
+
+                        <div class="form-group">
+                            <p>Connect your AgentHub with other services to streamline your workflow.</p>
+                        </div>
+
+                        <div class="integration-card">
+                            <div class="integration-header">
+                                <div class="integration-title">
+                                    <i class="fab fa-slack" style="color: #4A154B;"></i>
+                                    Slack Integration
+                                </div>
+                                <span class="integration-status status-active">Active</span>
+                            </div>
+                            <p class="integration-description">Receive ticket notifications and updates directly in your
+                                Slack channels.</p>
+                            <div class="form-group">
+                                <label class="form-label">Slack Channel</label>
+                                <input type="text" class="form-control" value="#customer-support">
+                            </div>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-cog"></i> Configure
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-power-off"></i> Disable
+                            </button>
+                        </div>
+
+                        <div class="integration-card">
+                            <div class="integration-header">
+                                <div class="integration-title">
+                                    <i class="fab fa-microsoft" style="color: #0078D4;"></i>
+                                    Microsoft Teams Integration
+                                </div>
+                                <span class="integration-status status-inactive">Inactive</span>
+                            </div>
+                            <p class="integration-description">Connect your support tickets with Microsoft Teams for
+                                collaboration.</p>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plug"></i> Connect
+                            </button>
+                        </div>
+
+                        <div class="integration-card">
+                            <div class="integration-header">
+                                <div class="integration-title">
+                                    <i class="fas fa-envelope" style="color: #EA4335;"></i>
+                                    Gmail Integration
+                                </div>
+                                <span class="integration-status status-active">Active</span>
+                            </div>
+                            <p class="integration-description">Sync your Gmail account to create tickets directly from
+                                emails.</p>
+                            <div class="form-group">
+                                <label class="form-label">Connected Account</label>
+                                <input type="text" class="form-control" value="sarah.johnson@company.com" disabled>
+                            </div>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-sync-alt"></i> Reconnect
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-power-off"></i> Disable
+                            </button>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add New Integration
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Security Section -->
+                    <section id="security" class="settings-section">
+                        <h2 class="section-title">Security</h2>
+
+                        <div class="form-group">
+                            <h3 class="form-label">Password</h3>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-key"></i> Change Password
+                            </button>
+                            <p class="form-text">Last changed: 3 months ago</p>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="form-label">Two-Factor Authentication</h3>
+                            <div class="toggle-container">
+                                <label class="toggle-sm">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Enable Two-Factor Authentication</span>
+                            </div>
+                            <p class="form-text">Currently using: Google Authenticator</p>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="form-label">Active Sessions</h3>
+                            <div style="border: 1px solid var(--border); border-radius: 8px;">
+                                <div class="session-item">
+                                    <div class="session-info">
+                                        <div class="session-device">Chrome on Windows</div>
+                                        <div class="session-details">New York, US • 192.168.1.1</div>
+                                        <div class="session-details">Active now</div>
+                                    </div>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-sign-out-alt"></i> Logout
+                                    </button>
+                                </div>
+
+                                <div class="session-item">
+                                    <div class="session-info">
+                                        <div class="session-device">Safari on Mac</div>
+                                        <div class="session-details">San Francisco, US • 192.168.1.2</div>
+                                        <div class="session-details">2 days ago</div>
+                                    </div>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-sign-out-alt"></i> Logout
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="form-label">API Access</h3>
+                            <div class="api-key-container">
+                                <span
+                                    class="api-key">sk_live_51Hx9F2Kb6Qx9Q3Q4w9Q3Q4w9Q3Q4w9Q3Q4w9Q3Q4w9Q3Q4w9Q3Q4w9Q3Q4w9</span>
+                                <button class="action-btn" title="Copy">
+                                    <i class="far fa-copy"></i>
+                                </button>
+                            </div>
+                            <p class="form-text">Keep this key secret. Do not share it in client-side code.</p>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-redo"></i> Regenerate Key
+                            </button>
+                        </div>
+
+                        <div class="danger-zone">
+                            <div class="danger-zone-title">
+                                <i class="fas fa-exclamation-triangle"></i> Danger Zone
+                            </div>
+                            <p class="danger-zone-text">These actions are irreversible. Please proceed with caution.</p>
+
+                            <div style="display: flex; gap: 10px;">
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-file-export"></i> Export All Data
+                                </button>
+                                <button class="btn btn-danger" id="deleteBtn">
+                                    <i class="fas fa-trash"></i> Delete Account
+                                </button>                                
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Notifications Section -->
+                    <section id="notifications" class="settings-section">
+                        <h2 class="section-title">Notification Settings</h2>
+
+                        <div class="form-group">
+                            <label class="form-label">Notification Frequency</label>
+                            <select class="form-control">
+                                <option>Instant</option>
+                                <option>Every 15 minutes</option>
+                                <option>Every hour</option>
+                                <option>Every 4 hours</option>
+                                <option>Daily summary</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Notifications</label>
+                            <div class="form-group">
+                                <div class="toggle-container">
+                                    <label class="toggle-sm">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span>New tickets assigned to me</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="toggle-container">
+                                    <label class="toggle-sm">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span>Ticket status changes</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="toggle-container">
+                                    <label class="toggle-sm">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span>New team messages</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="toggle-container">
+                                    <label class="toggle-sm">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span>Weekly performance report</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Push Notifications</label>
+                            <div class="form-group">
+                                <div class="toggle-container">
+                                    <label class="toggle-sm">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span>High priority tickets</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="toggle-container">
+                                    <label class="toggle-sm">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span>SLA warnings</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="toggle-container">
+                                    <label class="toggle-sm">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span>New announcements</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Notification Settings
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Preferences Section -->
+                    <section id="preferences" class="settings-section">
+                        <h2 class="section-title">Preferences</h2>
+
+                        <div class="form-group">
+                            <label class="form-label">Language</label>
+                            <select class="form-control">
+                                <option>English (US)</option>
+                                <option>English (UK)</option>
+                                <option>Spanish</option>
+                                <option>French</option>
+                                <option>German</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Time Zone</label>
+                            <select class="form-control">
+                                <option>(UTC-05:00) Eastern Time (US & Canada)</option>
+                                <option>(UTC-06:00) Central Time (US & Canada)</option>
+                                <option>(UTC-07:00) Mountain Time (US & Canada)</option>
+                                <option>(UTC-08:00) Pacific Time (US & Canada)</option>
+                                <option>(UTC+00:00) Greenwich Mean Time</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Date Format</label>
+                            <select class="form-control">
+                                <option>MM/DD/YYYY</option>
+                                <option>DD/MM/YYYY</option>
+                                <option>YYYY-MM-DD</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="toggle-container">
+                                <label class="toggle-sm">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Enable keyboard shortcuts</span>
+                            </div>
+                            <p class="form-text">Allow quick navigation using keyboard shortcuts</p>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="toggle-container">
+                                <label class="toggle-sm">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Enable sound notifications</span>
+                            </div>
+                            <p class="form-text">Play sound when new tickets arrive</p>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Preferences
+                            </button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/Agent Portal/static/js/Settings.js"></script>
+</body>
+
+</html>

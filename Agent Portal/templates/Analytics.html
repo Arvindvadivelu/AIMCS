@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics | Agent Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/Agent Portal/static/css/Analytics.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="logo-text">AgentHub</div>
+                </a>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="/Agent Portal/templates/Dashboard.html" class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="/Agent Portal/templates/Tickets.html" class="menu-item">
+                    <i class="fas fa-ticket-alt"></i> My Tickets
+                </a>
+                <a href="/Agent Portal/templates/Queue.html" class="menu-item">
+                    <i class="fas fa-inbox"></i> Team Queue
+                </a>
+                <a href="/Agent Portal/templates/Knowledge.html" class="menu-item active">
+                    <i class="fas fa-book"></i> Knowledge Base
+                </a>
+                <a href="/Agent Portal/templates/Analytics.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </a>
+                <a href="/Agent Portal/templates/Settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="User" class="user-avatar">
+                <div class="user-info">
+                    <h4>Sarah Johnson</h4>
+                    <p>Level 3 Support Agent</p>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Analytics</h1>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <div class="theme-toggle">
+                            <i class="fas fa-sun toggle-icon"></i>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider"></span>
+                            </label>
+                            <i class="fas fa-moon toggle-icon"></i>
+                        </div>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search analytics...">
+                        </div>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <a href="/Agent Portal/templates/index.html" class="logout-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Date Range Selector -->
+            <div class="date-range-selector">
+                <div class="date-range-title">Date Range</div>
+                <div class="date-range-options">
+                    <button class="date-range-btn active">Today</button>
+                    <button class="date-range-btn">Yesterday</button>
+                    <button class="date-range-btn">Last 7 Days</button>
+                    <button class="date-range-btn">Last 30 Days</button>
+                    <button class="date-range-btn">This Month</button>
+                    <div class="custom-date-range">
+                        <input type="date" class="date-input">
+                        <span>to</span>
+                        <input type="date" class="date-input">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Total Tickets</div>
+                        <div class="stat-icon">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">1,248</div>
+                    <div class="stat-change up">
+                        <i class="fas fa-arrow-up"></i> 12% from last week
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Avg. Response Time</div>
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">42m</div>
+                    <div class="stat-change down">
+                        <i class="fas fa-arrow-down"></i> 8% improvement
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Resolution Rate</div>
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">92%</div>
+                    <div class="stat-change up">
+                        <i class="fas fa-arrow-up"></i> 3% from last week
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Customer Satisfaction</div>
+                        <div class="stat-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">4.8</div>
+                    <div class="stat-change">
+                        <i class="fas fa-equals"></i> No change
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts Section -->
+            <div class="charts-container">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Tickets Over Time</h3>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: var(--primary);"></div>
+                                <span>Created</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: var(--success);"></div>
+                                <span>Resolved</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="ticketsChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Ticket Types</h3>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #4361ee;"></div>
+                                <span>Technical</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #4cc9f0;"></div>
+                                <span>Billing</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #3f37c9;"></div>
+                                <span>Account</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="typesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Top Agents -->
+            <div class="top-agents">
+                <div class="top-agents-header">
+                    <h3 class="top-agents-title">Top Performing Agents</h3>
+                    <a href="#" class="view-all">
+                        View All <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <table class="agents-table">
+                    <thead>
+                        <tr>
+                            <th>Agent</th>
+                            <th>Tickets Resolved</th>
+                            <th>Avg. Response</th>
+                            <th>Customer Rating</th>
+                            <th>SLA Compliance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="agent-info">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex" class="agent-avatar">
+                                    <span class="agent-name">Alex Johnson</span>
+                                </div>
+                            </td>
+                            <td>142</td>
+                            <td>28m</td>
+                            <td>
+                                <div class="rating">
+                                    <i class="fas fa-star rating-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                            </td>
+                            <td>98%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="agent-info">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily" class="agent-avatar">
+                                    <span class="agent-name">Emily Rodriguez</span>
+                                </div>
+                            </td>
+                            <td>128</td>
+                            <td>35m</td>
+                            <td>
+                                <div class="rating">
+                                    <i class="fas fa-star rating-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                            </td>
+                            <td>96%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="agent-info">
+                                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael" class="agent-avatar">
+                                    <span class="agent-name">Michael Chen</span>
+                                </div>
+                            </td>
+                            <td>118</td>
+                            <td>31m</td>
+                            <td>
+                                <div class="rating">
+                                    <i class="fas fa-star rating-star"></i>
+                                    <span>4.7</span>
+                                </div>
+                            </td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="agent-info">
+                                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Priya" class="agent-avatar">
+                                    <span class="agent-name">Priya Patel</span>
+                                </div>
+                            </td>
+                            <td>105</td>
+                            <td>42m</td>
+                            <td>
+                                <div class="rating">
+                                    <i class="fas fa-star rating-star"></i>
+                                    <span>4.6</span>
+                                </div>
+                            </td>
+                            <td>93%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Ticket Categories -->
+            <div class="categories-card">
+                <div class="categories-header">
+                    <h3 class="categories-title">Ticket Categories</h3>
+                    <a href="#" class="view-all">
+                        View All <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <ul class="categories-list">
+                    <li class="category-item">
+                        <div class="category-name">
+                            <div class="category-color" style="background: #4361ee;"></div>
+                            <span>Technical Support</span>
+                        </div>
+                        <div class="category-count">428 (34%)</div>
+                    </li>
+                    <li class="category-item">
+                        <div class="category-name">
+                            <div class="category-color" style="background: #4cc9f0;"></div>
+                            <span>Billing & Payments</span>
+                        </div>
+                        <div class="category-count">312 (25%)</div>
+                    </li>
+                    <li class="category-item">
+                        <div class="category-name">
+                            <div class="category-color" style="background: #3f37c9;"></div>
+                            <span>Account Management</span>
+                        </div>
+                        <div class="category-count">198 (16%)</div>
+                    </li>
+                    <li class="category-item">
+                        <div class="category-name">
+                            <div class="category-color" style="background: #4caf50;"></div>
+                            <span>Feature Requests</span>
+                        </div>
+                        <div class="category-count">156 (12%)</div>
+                    </li>
+                    <li class="category-item">
+                        <div class="category-name">
+                            <div class="category-color" style="background: #ff9800;"></div>
+                            <span>Other</span>
+                        </div>
+                        <div class="category-count">154 (12%)</div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="/Agent Portal/static/js/Analytics.js"></script>
+</body>
+</html>
